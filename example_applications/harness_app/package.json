@@ -1,0 +1,28 @@
+{
+    "name": "harness_app",
+    "version": "1.0.0",
+    "description": "Full application example — pict-section-login + pict-router against retold-harness bookstore",
+    "main": "Harness-App-Application.js",
+    "scripts": {
+        "start": "node Harness-App-Application.js",
+        "build": "npx quack build && npx quack copy"
+    },
+    "author": "steven velozo <steven@velozo.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "pict-router": "^1.0.8"
+    },
+    "copyFilesSettings": {
+        "whenFileExists": "overwrite"
+    },
+    "copyFiles": [
+        {
+            "from": "./html/*",
+            "to": "./dist/"
+        },
+        {
+            "from": "../../node_modules/pict/dist/*",
+            "to": "./dist/"
+        }
+    ]
+}

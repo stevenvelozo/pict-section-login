@@ -1,0 +1,24 @@
+{
+	"ProviderIdentifier": "Pict-Router",
+
+	"AutoInitialize": true,
+	"AutoInitializeOrdinal": 0,
+
+	"SkipRouteResolveOnAdd": true,
+
+	"Routes":
+	[
+		{
+			"path": "/Dashboard",
+			"template": "{~LV:Pict.PictApplication.showView(`HarnessApp-Dashboard`)~}"
+		},
+		{
+			"path": "/Books",
+			"template": "{~LV:Pict.PictApplication.showView(`HarnessApp-Books`)~}"
+		},
+		{
+			"path": "/Users",
+			"template": "{~LV:Pict.PictApplication.showView(`HarnessApp-Users`)~}"
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+    "name": "custom_login_example",
+    "version": "1.0.0",
+    "description": "Custom login example — pict-section-login with a mocked custom endpoint",
+    "main": "Custom-Login-Application.js",
+    "scripts": {
+        "start": "node Custom-Login-Application.js",
+        "build": "npx quack build && npx quack copy"
+    },
+    "author": "steven velozo <steven@velozo.com>",
+    "license": "MIT",
+    "devDependencies": {
+    },
+    "copyFilesSettings": {
+        "whenFileExists": "overwrite"
+    },
+    "copyFiles": [
+        {
+            "from": "./html/*",
+            "to": "./dist/"
+        },
+        {
+            "from": "../../node_modules/pict/dist/*",
+            "to": "./dist/"
+        }
+    ]
+}

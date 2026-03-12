@@ -1,0 +1,27 @@
+{
+    "name": "oauth_login_example",
+    "version": "1.0.0",
+    "description": "OAuth login example — pict-section-login with Google/Microsoft OAuth + standard login",
+    "main": "OAuth-Login-Application.js",
+    "scripts": {
+        "start": "node OAuth-Login-Application.js",
+        "build": "npx quack build && npx quack copy"
+    },
+    "author": "steven velozo <steven@velozo.com>",
+    "license": "MIT",
+    "devDependencies": {
+    },
+    "copyFilesSettings": {
+        "whenFileExists": "overwrite"
+    },
+    "copyFiles": [
+        {
+            "from": "./html/*",
+            "to": "./dist/"
+        },
+        {
+            "from": "../../node_modules/pict/dist/*",
+            "to": "./dist/"
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Custom Login - Pict Example</title>
+		<!-- PICT Dynamic View CSS Container -->
+		<style id="PICT-CSS"></style>
+		<!-- Red Rock Mesa Theme — Pict Example App -->
+		<style>
+			*, *::before, *::after { box-sizing: border-box; }
+			body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #FAEDCD; color: #264653; }
+
+			/* --- Header Bar --- */
+			.pict-example-header { display: flex; align-items: stretch; background: #264653; border-bottom: 3px solid #E76F51; }
+			.pict-example-badge { background: #E76F51; color: #fff; padding: 0.6rem 1rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; display: flex; align-items: center; gap: 0.5rem; }
+			.pict-example-badge svg { width: 14px; height: 14px; fill: #fff; flex-shrink: 0; }
+			.pict-example-app-name { padding: 0.6rem 1rem; color: #FAEDCD; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; }
+			.pict-example-module { margin-left: auto; padding: 0.6rem 1rem; color: #D4A373; font-size: 0.75rem; display: flex; align-items: center; letter-spacing: 0.03em; }
+
+			/* --- Content Area --- */
+			.pict-example-content { padding: 1.5rem; }
+
+			/* --- Info Banner --- */
+			.pict-example-info { background: #264653; color: #FAEDCD; border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.85rem; line-height: 1.5; }
+			.pict-example-info code { background: rgba(250,237,205,0.15); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.8rem; }
+		</style>
+		<script>
+			// =============================================================
+			// MOCK FETCH — Simulates a custom authentication backend.
+			// In a real application you would NOT do this; the section
+			// would simply point at your real API endpoint.
+			// =============================================================
+			(function ()
+			{
+				var _realFetch = window.fetch;
+				var _mockSession = null;
+
+				window.fetch = function (pURL, pOptions)
+				{
+					var tmpURL = typeof pURL === 'string' ? pURL : pURL.toString();
+
+					// --- POST /api/custom-auth ---
+					if (tmpURL === '/api/custom-auth' && pOptions && pOptions.method === 'POST')
+					{
+						var tmpBody = JSON.parse(pOptions.body || '{}');
+						var tmpUser = tmpBody.UserName || '';
+						var tmpPass = tmpBody.Password || '';
+
+						if (tmpUser === 'demo' && tmpPass === 'demo')
+						{
+							_mockSession = {
+								LoggedIn: true,
+								SessionID: 'mock-session-' + Date.now(),
+								UserID: 1,
+								UserRecord: { LoginID: 'demo', IDUser: 1, FullName: 'Demo User', Email: 'demo@example.com' }
+							};
+							return Promise.resolve(new Response(JSON.stringify(_mockSession), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+						}
+						else
+						{
+							return Promise.resolve(new Response(JSON.stringify({ LoggedIn: false, Error: 'Invalid credentials. Try demo / demo.' }), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+						}
+					}
+
+					// --- GET /api/custom-logout ---
+					if (tmpURL === '/api/custom-logout')
+					{
+						_mockSession = null;
+						return Promise.resolve(new Response(JSON.stringify({ LoggedIn: false }), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+					}
+
+					// --- GET /api/custom-session ---
+					if (tmpURL === '/api/custom-session')
+					{
+						if (_mockSession)
+						{
+							return Promise.resolve(new Response(JSON.stringify(_mockSession), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+						}
+						return Promise.resolve(new Response(JSON.stringify({ LoggedIn: false }), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+					}
+
+					// All other requests pass through to the real fetch
+					return _realFetch.apply(window, arguments);
+				};
+			})();
+		</script>
+		<script src="./pict.js" type="text/javascript"></script>
+		<script type="text/javascript">Pict.safeOnDocumentReady(() => { Pict.safeLoadPictApplication(CustomLoginExample, 1); });</script>
+	</head>
+	<body>
+		<div class="pict-example-header">
+			<div class="pict-example-badge">
+				<svg viewBox="0 0 16 16"><polygon points="8,1 10,6 16,6 11,9.5 13,15 8,11.5 3,15 5,9.5 0,6 6,6"/></svg>
+				Pict Example
+			</div>
+			<div class="pict-example-app-name">Custom Login</div>
+			<div class="pict-example-module">pict-section-login</div>
+		</div>
+		<div class="pict-example-content">
+			<div class="pict-example-info">
+				This example demonstrates <code>pict-section-login</code> pointed at a <strong>custom endpoint</strong>
+				(<code>/api/custom-auth</code>).  No server is needed &mdash; <code>window.fetch</code> is mocked
+				to simulate a backend.  Use <code>demo</code> / <code>demo</code> to log in.
+			</div>
+			<div id="Pict-Login-Container"></div>
+		</div>
+		<script src="./custom_login_example.js" type="text/javascript"></script>
+	</body>
+</html>

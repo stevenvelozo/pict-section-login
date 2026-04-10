@@ -28,7 +28,7 @@
 	"SessionDataAddress": "AppData.Session",
 
 	// Rendering resources
-	"Templates":   [ /* 5 default templates — see Templates & Styling */ ],
+	"Templates":   [ /* 5 default templates -- see Templates & Styling */ ],
 	"Renderables": [ /* default Login-Container renderable */ ],
 	"CSS":         "/* embedded .pict-login-* design system */"
 }

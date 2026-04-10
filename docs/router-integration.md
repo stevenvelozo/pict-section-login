@@ -268,7 +268,7 @@ Now an unauthenticated visit to `#/Books`:
 2. Fails the `Session.LoggedIn` check.
 3. Writes `Books` to `AppData.PendingRoute`.
 4. Calls `showLogin()` to display the login form.
-5. After the user signs in, `onLoginSuccess` → `showProtectedApp` → `navigate(AppData.PendingRoute)` lands them back on `#/Books`.
+5. After the user signs in, `onLoginSuccess` -> `showProtectedApp` -> `navigate(AppData.PendingRoute)` lands them back on `#/Books`.
 
 ## Post-Login Redirect in One Helper
 

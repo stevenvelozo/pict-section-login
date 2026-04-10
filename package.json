@@ -27,7 +27,7 @@
         "pict": "^1.0.350",
         "pict-application": "^1.0.33",
         "puppeteer": "^24.38.0",
-        "quackage": "^1.0.59"
+        "quackage": "^1.1.0"
     },
     "mocha": {
         "diff": true,

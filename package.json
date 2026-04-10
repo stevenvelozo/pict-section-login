@@ -26,6 +26,7 @@
         "browser-env": "^3.3.0",
         "pict": "^1.0.350",
         "pict-application": "^1.0.33",
+        "pict-docuserve": "^0.1.5",
         "puppeteer": "^24.38.0",
         "quackage": "^1.1.0"
     },

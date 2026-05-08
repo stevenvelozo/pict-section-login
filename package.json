@@ -1,6 +1,6 @@
 {
     "name": "pict-section-login",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Pict login section for authentication UIs — works with orator-authentication or any custom backend",
     "main": "source/Pict-Section-Login.js",
     "scripts": {

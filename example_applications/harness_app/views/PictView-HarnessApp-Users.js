@@ -24,7 +24,7 @@ const _ViewConfiguration =
 		}
 		.harnessapp-user-card
 		{
-			background: #fff;
+			background: var(--theme-color-background-panel, #fff);
 			border: 1px solid #D4A373;
 			border-radius: 6px;
 			padding: 1rem 1.25rem;
@@ -61,7 +61,7 @@ const _ViewConfiguration =
 		}
 		.harnessapp-user-card-info .full-name
 		{
-			color: #888;
+			color: var(--theme-color-text-muted, #888);
 			font-size: 0.8rem;
 		}
 		.harnessapp-user-card-info .user-id
@@ -78,7 +78,7 @@ const _ViewConfiguration =
 		{
 			padding: 2rem;
 			text-align: center;
-			color: #999;
+			color: var(--theme-color-text-muted, #999);
 			font-size: 0.9rem;
 		}
 	`,

@@ -74,7 +74,7 @@ const _ViewConfiguration =
 		.harnessapp-topbar-logout
 		{
 			background: #E76F51;
-			color: #fff;
+			color: var(--theme-color-background-panel, #fff);
 			border: none;
 			padding: 0.3rem 0.8rem;
 			border-radius: 4px;

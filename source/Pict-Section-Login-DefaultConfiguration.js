@@ -67,14 +67,14 @@ module.exports = (
 {
 	max-width: 400px;
 	margin: 2rem auto;
-	background: #fff;
-	border: 1px solid #D4A373;
-	border-top: 4px solid #E76F51;
+	background: var(--theme-color-background-panel, #fff);
+	border: 1px solid var(--theme-color-border-default, #D4A373);
+	border-top: 4px solid var(--theme-color-brand-primary, #E76F51);
 	border-radius: 6px;
 	padding: 1.5rem;
 	box-shadow: 0 2px 8px rgba(38,70,83,0.08);
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-	color: #264653;
+	color: var(--theme-color-text-primary, #264653);
 }
 
 /* ----- Form ----- */
@@ -88,29 +88,29 @@ module.exports = (
 {
 	font-weight: 600;
 	font-size: 0.85rem;
-	color: #264653;
+	color: var(--theme-color-text-primary, #264653);
 }
 .pict-login-input
 {
-	border: 1px solid #D4C4A8;
-	background: #FFFCF7;
+	border: 1px solid var(--theme-color-border-light, #D4C4A8);
+	background: var(--theme-color-background-secondary, #FFFCF7);
 	padding: 0.55rem 0.7rem;
 	border-radius: 4px;
 	font-size: 0.9rem;
-	color: #264653;
+	color: var(--theme-color-text-primary, #264653);
 	width: 100%;
 	box-sizing: border-box;
 }
 .pict-login-input:focus
 {
 	outline: none;
-	border-color: #E76F51;
+	border-color: var(--theme-color-brand-primary, #E76F51);
 	box-shadow: 0 0 0 2px rgba(231,111,81,0.15);
 }
 .pict-login-submit
 {
-	background: #E76F51;
-	color: #fff;
+	background: var(--theme-color-brand-primary, #E76F51);
+	color: var(--theme-color-text-on-brand, #fff);
 	border: none;
 	padding: 0.6rem 1.25rem;
 	border-radius: 4px;
@@ -121,7 +121,7 @@ module.exports = (
 }
 .pict-login-submit:hover
 {
-	background: #C45A3E;
+	background: var(--theme-color-brand-primary-hover, #C45A3E);
 }
 .pict-login-submit:disabled
 {
@@ -132,9 +132,9 @@ module.exports = (
 /* ----- Error ----- */
 .pict-login-error
 {
-	background: #FDECEA;
-	border: 1px solid #E76F51;
-	color: #8B2500;
+	background: var(--theme-color-background-tertiary, #FDECEA);
+	border: 1px solid var(--theme-color-brand-primary, #E76F51);
+	color: var(--theme-color-status-error, #8B2500);
 	border-radius: 4px;
 	padding: 0.6rem 0.8rem;
 	font-size: 0.85rem;
@@ -158,12 +158,12 @@ module.exports = (
 }
 .pict-login-dot--on
 {
-	background: #2A9D8F;
+	background: var(--theme-color-status-success, #2A9D8F);
 	box-shadow: 0 0 4px rgba(42,157,143,0.5);
 }
 .pict-login-dot--off
 {
-	background: #999;
+	background: var(--theme-color-text-muted, #999);
 }
 .pict-login-user-label
 {
@@ -171,8 +171,8 @@ module.exports = (
 }
 .pict-login-user-id
 {
-	background: #264653;
-	color: #FAEDCD;
+	background: var(--theme-color-text-primary, #264653);
+	color: var(--theme-color-text-on-brand, #FAEDCD);
 	font-size: 0.7rem;
 	font-weight: 700;
 	padding: 0.15rem 0.5rem;
@@ -181,8 +181,8 @@ module.exports = (
 .pict-login-logout-btn
 {
 	margin-left: auto;
-	background: #264653;
-	color: #FAEDCD;
+	background: var(--theme-color-text-primary, #264653);
+	color: var(--theme-color-text-on-brand, #FAEDCD);
 	border: none;
 	padding: 0.4rem 1rem;
 	border-radius: 4px;
@@ -192,7 +192,7 @@ module.exports = (
 }
 .pict-login-logout-btn:hover
 {
-	background: #1A3340;
+	background: var(--theme-color-text-primary, #1A3340);
 }
 
 /* ----- OAuth ----- */
@@ -206,7 +206,7 @@ module.exports = (
 	align-items: center;
 	gap: 0.75rem;
 	margin-bottom: 0.75rem;
-	color: #999;
+	color: var(--theme-color-text-muted, #999);
 	font-size: 0.8rem;
 }
 .pict-login-oauth-divider::before,
@@ -215,7 +215,7 @@ module.exports = (
 	content: '';
 	flex: 1;
 	height: 1px;
-	background: #D4C4A8;
+	background: var(--theme-color-border-light, #D4C4A8);
 }
 .pict-login-oauth-buttons
 {
@@ -235,13 +235,13 @@ module.exports = (
 	font-weight: 600;
 	cursor: pointer;
 	text-decoration: none;
-	border: 1px solid #D4C4A8;
-	background: #fff;
-	color: #264653;
+	border: 1px solid var(--theme-color-border-light, #D4C4A8);
+	background: var(--theme-color-background-panel, #fff);
+	color: var(--theme-color-text-primary, #264653);
 }
 .pict-login-oauth-btn:hover
 {
-	background: #F5F0E8;
+	background: var(--theme-color-background-secondary, #F5F0E8);
 }
 .pict-login-oauth-btn--google
 {

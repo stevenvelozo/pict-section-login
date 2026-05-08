@@ -20,7 +20,7 @@ const _ViewConfiguration =
 		{
 			width: 100%;
 			border-collapse: collapse;
-			background: #fff;
+			background: var(--theme-color-background-panel, #fff);
 			border: 1px solid #D4A373;
 			border-radius: 6px;
 			overflow: hidden;
@@ -56,7 +56,7 @@ const _ViewConfiguration =
 		{
 			padding: 2rem;
 			text-align: center;
-			color: #999;
+			color: var(--theme-color-text-muted, #999);
 			font-size: 0.9rem;
 		}
 	`,
